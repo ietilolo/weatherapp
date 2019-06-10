@@ -1,3 +1,49 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    color: white;
+}
+
 body {
-    background-color: darkslategrey;
+    background-image: linear-gradient(#274EAB, #00BBA9);
+}
+
+/* APP */
+#app {
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.app__temp {
+    font-size: 70px;
+    font-weight: 600;
+    letter-spacing: 10px;
+}
+
+.app__degree {
+    font-size: 25px;
+    font-weight: medium;
+    letter-spacing: 5px;
+}
+
+.app__description {
+    text-align: center;
+    width: 60%;
+    margin: 50px 0px;
+    line-height: 25px;
+    font-weight: lighter;
+    text-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+}
+
+/* App / Location */
+.location {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
