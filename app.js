@@ -22,6 +22,7 @@ let lat = "";
 let long = "";
 let coords = "";
 let day = 1;
+let degreeSetting;
 
 window.navigator.geolocation.getCurrentPosition(position => {
 
@@ -32,9 +33,12 @@ window.navigator.geolocation.getCurrentPosition(position => {
 
     setInterval( () => {
 
+
         // Fetch Weather Data
         fetch( apiReq ).then( response => {
+
             return response.json();
+
         }).then( data => {
 
             dataShort = data.currently;
@@ -44,7 +48,9 @@ window.navigator.geolocation.getCurrentPosition(position => {
             skycons.add( "icon1", Skycons[icon] );
 
             // Change Temperature
-            app_temp.innerText = dataShort.temperature;
+            if ( app_temp.innerText == "" ) {
+                app_temp.innerText = dataShort.temperature;
+            }
 
             // Change Description
             app_description.innerText = data.daily.data[0].summary;
@@ -52,8 +58,29 @@ window.navigator.geolocation.getCurrentPosition(position => {
             // Change App Timezone
             app_timezone.innerText = data.timezone.split( "/" )[1];
 
+            // Extract Degree
+            degreeSetting = dataShort.temperature;
+
         });
 
     }, 1000 );
+
+});
+
+app_degree.addEventListener( 'click', () => {
+
+    let celcius = ( degreeSetting - 32 ) * 5 / 9;
+
+    if ( app_degree.innerText == "Farenheit" ) {
+
+        app_temp.innerText = Math.round(celcius);
+        app_degree.innerText = "Celcius";
+
+    } else {
+
+        app_temp.innerText = degreeSetting;
+        app_degree.innerText = "Farenheit";
+
+    }
 
 });
