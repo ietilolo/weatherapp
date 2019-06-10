@@ -20,13 +20,28 @@
     <div id="app">
 
         <!-- Icon / Temp / Degree / Description -->
-        <div class="app__icon"></div>
-        <div class="app__temp"></div>
-        <div class="app__degree"></div>
+        <div class="app__icon">
+            <canvas id="icon1" width="128" height="128"></canvas>
+        </div>
+        <div class="app__temp">52</div>
+        <div class="app__degree">Farenheit</div>
+
+        <div class="location">
+
+            <div class="location__icon">
+                <img src="location-icon.svg" alt="Location Icon">
+            </div><!-- .location__icon -->
+
+            <div class="location__text">
+                <p>Auckland</p>
+            </div><!-- .location__text -->
+
+        </div><!-- .location -->
 
     </div><!-- #app -->
     
     <!-- Script.js -->
+    <script src="skyicons.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
